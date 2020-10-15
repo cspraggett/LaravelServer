@@ -15,14 +15,11 @@
 </header>
 
 <main>
+
     <div class="mx-auto card my-4" style="width: 75%">
         <div class="mx-auto card-body">
             <h5 class="card-title text-center">Departments</h5>
             <section id="departments">
-                <div v-if="failure">
-                    <aside class="lowlight">Failed To Fetch Department Records</aside>
-                </div>
-                <div v-else-if="depts.length">
                     <table class="table table-striped">
                         <caption class="text-center">
                             The Departments
@@ -44,17 +41,15 @@
                         </tr>
                         </thead>
 
-                        <tr v-for="department in depts" :key="department.emp_no">
-                            <td>@{{department.dept_no}}</td>
-                            <td>@{{department.dept_name}}</td>
-                            <td>@{{department.first_name}}</td>
-                            <td>@{{department.last_name}}</td>
-                        </tr>
+                                @foreach($depts as $d)
+                            <tr>
+                                    <td>{{$d->dept_no}}</td>
+                                    <td>{{$d->dept_name}}</td>
+                                    <td>{{$d->first_name}}</td>
+                                    <td>{{$d->last_name}}</td>
+                            </tr>
+                                @endforeach
                     </table>
-                </div>
-                <div v-else>
-                    <aside>No Department Data</aside>
-                </div>
             </section>
         </div>
     </div>

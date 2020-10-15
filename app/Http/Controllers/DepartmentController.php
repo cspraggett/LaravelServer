@@ -49,4 +49,10 @@ group by d.dept_no"));
 //            ->join('employees', 'employees.emp_id', '=', 'dept.emp_id')
 //            ->select('d.dept_name', 'd.dept_no', 'employees.first_name', 'employees.last_name');
 //    }
+    public function company()
+    {
+        $depts = $this->getDepartments();
+//        dd($depts[0]->dept_name);
+        return view('welcome', compact('depts'));
+    }
 }
