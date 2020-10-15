@@ -65,6 +65,6 @@
         </style>
     </head>
     <body>
-
+            <example-component></example-component>
     </body>
 </html>
