@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/company-data', function () {
+    return view('welcome');
+});
+
 Route::get('version', function () {
     $jsonFile = json_decode(file_get_contents('./composer.json'), true);
     return $jsonFile['require']['php'];
