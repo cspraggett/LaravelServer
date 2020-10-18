@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/company-data', 'DepartmentController@company');
+//{
+////    $depts = App\Department::all();
+////    dd($depts);
+////    return view('welcome', compact('DepartmentController@getDepartments'));
+//});
+
 Route::get('version', function () {
     $jsonFile = json_decode(file_get_contents('./composer.json'), true);
     return $jsonFile['require']['php'];

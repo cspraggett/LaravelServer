@@ -32,7 +32,14 @@ class DepartmentController extends Controller
 //                     group by dept_no) a on
 //                  dm.dept_no = a.dept_no and a.maxDate = dm.from_date
 //      group by dept_no) as dm on d.dept_no = dm.dept_no
-//join employees on dm.emp_no  = employees.emp_no
-//group by d.dept_no"));
+//group by d.dept_no AS dept"), 'dept.dept_no', '=', 'd.dept_no')
+//            ->join('employees', 'employees.emp_id', '=', 'dept.emp_id')
+//            ->select('d.dept_name', 'd.dept_no', 'employees.first_name', 'employees.last_name');
+//    }
+    public function company()
+    {
+        $depts = $this->getDepartments();
+//        dd($depts[0]->dept_name);
+        return view('welcome', compact('depts'));
     }
 }
